@@ -1,0 +1,148 @@
+
+/* Sidebar.css - Green theme to match AdminHeader (updated, slimmer, with gap) */
+
+/* Variables for consistency */
+:root {
+  /* Slightly taller header + small gap so sidebar doesn't touch the brand/logo */
+  --admin-header-h: 72px;                 /* was 64px */
+  --sidebar-gap: 8px;                      /* new: small vertical breathing space */
+
+  /* Slimmer sidebar */
+  --sidebar-width: 160px;                  /* was 220px */
+  --sidebar-width-collapsed: 60px;    
+      
+}
+
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  top: calc(var(--admin-header-h) + var(--sidebar-gap)); /* start below header + gap */
+  left: 0;
+  height: calc(100vh - var(--admin-header-h) - var(--sidebar-gap));
+  width: var(--sidebar-width);
+  background: linear-gradient(to bottom, #059669, #047857); /* emerald green gradient */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;                           /* slightly tighter */
+  z-index: 60;
+  transition: width 0.3s ease, top 0.2s ease, height 0.2s ease;
+  border-top-right-radius: 10px;           /* soften the corner near the logo */
+}
+
+/* Collapsed state */
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+/* Header inside sidebar */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;                                /* tighter */
+  padding: 6px 6px 12px;                   /* was 6px 6px 16px */
+  margin-bottom: 8px;                      /* was 10px */
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #fff;
+  font-size: 0.95rem;                      /* a bit smaller so it fits the slimmer bar */
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;                       /* was 1.4rem */
+  cursor: pointer;
+  padding: 6px;                            /* was 8px */
+  border-radius: 6px;
+}
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* User profile section */
+
+/* --- Remove the white rounded backdrop behind View Profile --- */
+.sidebar-user .user-profile {
+  background: transparent !important;      /* kill semi-transparent panel */
+  padding: 0 !important;                   /* remove extra padding that shows outside */
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Just in case anything is drawing a pill via pseudo elements */
+.sidebar-user .user-profile::before,
+.sidebar-user .user-profile::after {
+  content: none !important;
+}
+
+/* Make the button the only visible element */
+.sidebar-user .user-profile .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #ffffff;
+  color: #047857;                          /* emerald text to match theme */
+  border-radius: 8px;
+  padding: 10px 23px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: none;
+}
+
+/* Optional: subtle hover */
+.sidebar-user .user-profile .button:hover {
+  background: #f0fdf4;                     /* light emerald */
+}
+
+/* Hide the "View Profile" text when collapsed */
+.sidebar.collapsed .sidebar-user .user-profile .button span {
+  display: none;
+}
+
+/* Nav links */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  padding: 10px 8px;                       /* was 14px 10px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;                               /* was 14px */
+  border-radius: 8px;
+  margin: 6px 0;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+nav li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+nav li svg {
+  font-size: 1.35rem;                      /* was 1.6rem */
+  color: #fff;
+}
+
+.sidebar.collapsed nav li span {
+  display: none;
+}
+
+/* Main content offset */
+.main {
+  margin-left: var(--sidebar-width);
+  margin-top: calc(var(--admin-header-h) + var(--sidebar-gap));
+  transition: margin-left 0.3s ease, margin-top 0.2s ease;
+}
+
+.app-root.sidebar-collapsed .main {
+  margin-left: var(--sidebar-width-collapsed);
+}
