@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 export default function Redemptions() {
     const [history, setHistory] = useState([])
     useEffect(() => {
-        try { const raw = localStorage.getItem('p36_redemptions'); setHistory(raw ? JSON.parse(raw) : []) } catch { setHistory([]) }
+        try { const raw = localStorage.getItem('p360_redemptions'); setHistory(raw ? JSON.parse(raw) : []) } catch { setHistory([]) }
     }, [])
     return (
         <div className="container-responsive">

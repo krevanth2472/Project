@@ -60,7 +60,7 @@ export default function Header() {
               <NavLink to="/offers" className={linkClass}>Offers</NavLink>
               <NavLink to="/redemptions" className={linkClass}>Redemptions</NavLink>
               <NavLink to="/transactions" className={linkClass}>Transactions</NavLink>
-              <NavLink to="/loyalty/overview" className={linkClass}>Report</NavLink>
+              {/* <NavLink to="/loyalty/overview" className={linkClass}>Report</NavLink> */}
 
               {/* Important: NO fraud link here for users; Admins see AdminHeader */}
               <button

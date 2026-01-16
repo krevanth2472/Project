@@ -50,21 +50,21 @@ export default function AdminHeader() {
             Promotions
           </button>
 
-          <button
+          {/* <button
             type="button"
             onClick={() => go('/admin/campaign-builder')}
             className={`${linkBase} ${isActive('/admin/campaign-builder') ? activeCls : idleCls}`}
           >
             New Campaign
-          </button>
+          </button> */}
 
-          <button
+          {/* <button
             type="button"
             onClick={() => go('/admin/analytics')}
             className={`${linkBase} ${isActive('/admin/analytics') ? activeCls : idleCls}`}
           >
             Analytics
-          </button>
+          </button> */}
 
           {/* Fraud Module (admin-only area) */}
           <button
@@ -74,6 +74,20 @@ export default function AdminHeader() {
           >
             Fraud Monitor
           </button>
+
+
+
+           {/* Report Module (admin-only area) */}
+          <button
+            type="button"
+            onClick={() => go('/admin/Report/dashboard')}
+            className={`${linkBase} ${isActive('/admin/Report') ? activeCls : idleCls}`}
+          >
+            Report
+          </button>
+
+
+
 
           {/* Divider + Logout */}
           <div className="ml-4 pl-4 border-l border-white/20">
