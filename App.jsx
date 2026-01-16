@@ -49,6 +49,7 @@ import "./App.css";
 import "../styles/base.css";
 import "../styles/variables.css";
 
+// Layout for customer-facing pages (like login, profile, offers, etc.)
 const CustomerLayout = () => (
   <>
     <Header />
