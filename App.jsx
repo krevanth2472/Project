@@ -49,7 +49,6 @@ import "./App.css";
 import "../styles/base.css";
 import "../styles/variables.css";
 
-/** CustomerLayout: wraps customer-facing pages (Header/Footer + Outlet). */
 const CustomerLayout = () => (
   <>
     <Header />
